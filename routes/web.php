@@ -45,9 +45,15 @@ Route::get('admin/adminacara/readadminacara', [AdminController::class, 'readAdmi
 // Route::get('admin/adminkoleksi/readadminkoleksi', [AdminController::class, 'readAdminKoleksi'])->name('admin.read_adminkoleksi');
 
 
-Route::post('readadminkoleksi', [KoleksiController::class, 'store'])->name('readadminkoleksi.store');
+// Route::post('readadminkoleksi', [KoleksiController::class, 'store'])->name('readadminkoleksi.store');
+Route::post('admin/koleksi/readadminkoleksi', [KoleksiController::class, 'store'])->name('readadminkoleksi.store');
+Route::get('admin/koleksi/readadminkoleksi', [AdminController::class, 'readAdminKoleksi'])->name('admin.read_adminkoleksi');
+Route::middleware(['auth'])->group(function () {
+    Route::post('admin/koleksi/readadminkoleksi', [KoleksiController::class, 'store'])->name('readadminkoleksi.store');
+});
+
 // Route::resource('readadminkoleksi', [KoleksiController::class]);
-Route::post('/adminkoleksi/store', [KoleksiController::class, 'store'])->name('readadminkoleksi.store');
+Route::post('admin/readadminkoleksi/store', [KoleksiController::class, 'store'])->name('readadminkoleksi.store');
 
 // Route::get('readadminkoleksi', [AdminController::class, 'readAdminKoleksi'])->name('admin.read_adminkoleksi');
 

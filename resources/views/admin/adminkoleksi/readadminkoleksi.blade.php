@@ -21,9 +21,9 @@
 </style>
 
 <!-- Card List Section -->
-<section class="bg-gray-100 dark:bg-gray-900 py-10 px-12">
+<section class="bg-gray-100 py-10 px-12">
         <div class="flex justify-between items-center mb-4">
-            <h1 class="text-2xl font-bold">Daftar Koleksi</h1>
+            <h1 class="text-xl font-bold text-black">Daftar Koleksi</h1>
             <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
                 onclick="document.getElementById('addKoleksi').classList.remove('hidden')">
                 Tambah Koleksi
@@ -33,26 +33,6 @@
     <div class="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <!-- Card Item 1 -->
         <div class="my-8 rounded shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800 duration-300 hover:-translate-y-1">
-            {{-- @if ($koleksis->isEmpty())
-                <p>Koleksi kosong.</p>
-            @else
-                @foreach ($koleksis as $koleksi)
-                <a href="link" class="cursor-pointer">
-                    <img src="{{ url('storage/' . $koleksi->gambar) }}" alt="{{ $koleksi->judul }}" class="rounded-t h-72 w-full object-cover">
-                    <figcaption class="p-4">
-                        <p class="text-lg mb-4 font-bold leading-relaxed text-gray-800 dark:text-gray-300">{{ $koleksi->judul }}</p>
-                        <small class="leading-5 text-gray-500 dark:text-gray-400">{{ $koleksi->deskripsi }}</small>
-                        <button class="text-blue-500 hover:text-blue-700"
-                            onclick="openKoleksi({name: 'Produk 1', price: 50000, description: 'Deskripsi singkat produk'})">
-                            Edit
-                        </button>
-                        <a href="{{ route("product.destroy.new", $product->id) }}">
-                            <button class="text-red-500 hover:text-red-700" type="submit" onclick="confirm('Yakin ingin menghapus?')">Hapus</button>
-                        </a>
-                    </figcaption>
-                </a>
-                @endforeach
-            @endif --}}
 
             @foreach ($koleksis as $koleksi)
             <a href="link" class="cursor-pointer">
@@ -60,10 +40,10 @@
                 <figcaption class="p-4">
                     <p class="text-lg mb-4 font-bold leading-relaxed text-gray-800 dark:text-gray-300">{{ $koleksi->judul }}</p>
                     <small class="leading-5 text-gray-500 dark:text-gray-400">{{ $koleksi->deskripsi }}</small>
-                    <button class="text-blue-500 hover:text-blue-700" onclick="openKoleksi({name: 'Produk 1', price: 50000, description: 'Deskripsi singkat produk'})">Edit</button>
-                    <a href="{{ route("product.destroy.new", $product->id) }}">
+                    {{-- <button class="text-blue-500 hover:text-blue-700" onclick="openKoleksi({name: 'Produk 1', price: 50000, description: 'Deskripsi singkat produk'})">Edit</button>
+                    <a href="{{ route("koleksi.destroy.new", $product->id) }}">
                         <button class="text-red-500 hover:text-red-700" type="submit" onclick="confirm('Yakin ingin menghapus?')">Hapus</button>
-                    </a>
+                    </a> --}}
                 </figcaption>
             </a>
             @endforeach
@@ -81,6 +61,10 @@
             <h2 class="text-lg font-bold mb-4">Tambah Koleksi</h2>
             <form action="{{ route('readadminkoleksi.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                <div class="mb-4">
+                    <label for="admin_id" class="block text-sm">Admin ID</label>
+                    <input type="number" id="admin_id" name="admin_id" class="border p-2 w-full rounded">
+                </div>
                 <div class="mb-4">
                     <label for="judul" class="block text-sm">Nama Koleksi</label>
                     <input type="text" id="judul" name="judul" class="border p-2 w-full rounded">
@@ -101,7 +85,7 @@
             </form>
         </div>
     </div>
-
+    
     {{-- Pop up edit koleksi --}}
     {{-- <div id="editKoleksi" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
         <div class="bg-white p-6 rounded shadow-md w-96">
@@ -127,7 +111,7 @@
             </form>
         </div>
     </div> --}}
-
+ 
     <script>
         function openEditKoleksi(koleksi) {
             document.getElementById('editKoleksi').classList.remove('hidden');
@@ -140,29 +124,3 @@
 @endsection
 
 
-
-
-
-<section class="bg-gray-100 dark:bg-gray-900 py-10 px-12">
- 
-    <div class="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-  
-        <div class="my-8 rounded shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800 duration-300 hover:-translate-y-1">
-            <a href="link" class="cursor-pointer">
-                <figure>
-                    <img src="{{ asset('assets/Frame 6.png') }}" class="rounded-t h-72 w-full object-cover" />
-                    <figcaption class="p-4">
-                        <p class="text-lg mb-4 font-bold leading-relaxed text-gray-800 dark:text-gray-300">
-                            5 Easy Tips That Will Make Your Latte Art Flourish
-                        </p>
-                        <small class="leading-5 text-gray-500 dark:text-gray-400">
-                            Latte art is quite often the most attractive thing for a new barista, and latte art is an excellent gateway to the exciting world of coffee. Latte art easy to start with, but to master latte art patterns, you need a lot practice and determination. Here are my tips that helped me to improve my latte art a few years ago!
-                        </small>
-                    </figcaption>
-                </figure>
-            </a>
-        </div>
-
-    </div>
-</section>
-@endsection

@@ -7,23 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Koleksi extends Model
 {
-    use HasFactory;
-
-    protected $table = 'koleksis';
-    protected $primaryKey = 'koleksi_id';
-
     protected $fillable = [
-        // 'admin_id',
+        'admin_id', // pastikan admin_id ada di sini
         'judul',
         'deskripsi',
         'gambar',
-        // 'kategori',
     ];
 
-    // Relasi
+    // Relasi ke model Admin
     public function admin()
     {
-        return $this->belongsTo(Admin::class, 'admin_id', 'admin_id');
+        return $this->belongsTo(Admin::class, 'admin_id', 'admin_id'); // pastikan 'admin_id' sebagai foreign key
     }
+
 }
 

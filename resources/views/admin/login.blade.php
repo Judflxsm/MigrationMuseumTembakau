@@ -9,9 +9,8 @@
 </head>
 <body class="bg-gray-100 h-screen flex items-center justify-center">
     <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-        <h2 class="text-2xl font-bold text-center text-gray-700 mb-6">Login Admin</h2>
+        <h2 class="text-2xl font-bold text-center text-gray-700 mb-6">Login Admin Tembakau</h2>
         
-        <!-- Error message display -->
         @if(session('error'))
             <div class="text-red-500 text-center mb-4">
                 {{ session('error') }}

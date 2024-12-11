@@ -75,205 +75,176 @@
         </nav>
 
 
-<!-- Main Content -->
-<div class="container mx-auto flex flex-col md:flex-row mt-10 gap-6 px-4">
-  <!-- Left Section (Visit Prices) -->
-  <div class="w-full md:w-1/2 h-[700px] bg-[url('https://via.placeholder.com/600x800')] bg-cover bg-center relative rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
-    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-8 flex flex-col justify-end text-white">
-      <h2 class="text-4xl font-bold mb-5 animate-fade-in">Visit Prices</h2>
-      <p class="text-lg mb-5 animate-fade-in fade-delay-1">Tiket hanya tersedia secara online. Pastikan Anda memesan tiket sebelum kunjungan untuk memastikan akses ke dalam museum.</p>
-      <div class="space-y-4">
-        <div class="opacity-0 transform translate-y-6 transition duration-500 ease-out animate-fade-in fade-delay-2">
-          <p class="text-xl font-medium">DEWASA</p>
-          <p class="text-2xl font-semibold">Rp 50.000 / Tiket</p>
+        <div class="container mx-auto flex flex-col md:flex-row mt-10 gap-6 px-4 h-screen">
+          <!-- Left Section (Visit Prices) -->
+          <div class="w-full md:w-1/2 h-full relative rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+            <img src="/image/tiket.jpeg" alt="Edukasi" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-8 flex flex-col justify-end text-white">
+              <h2 class="text-5xl font-extrabold mb-6 animate-fade-in">Harga Tiket</h2>
+              <div class="space-y-6 text-lg">       
+                <div>
+                  <p class="text-2xl font-semibold">Domestik Jawa Timur</p>
+                  <ul class="list-disc pl-6">
+                    <li>Umum: <strong>Rp 10.000</strong></li>
+                    <li>Pelajar: <strong>Rp 5.000</strong></li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-2xl font-semibold">Domestik Luar Jatim</p>
+                  <ul class="list-disc pl-6">
+                    <li>Umum: <strong>Rp 15.000</strong></li>
+                    <li>Pelajar: <strong>Rp 7.500</strong></li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-2xl font-semibold">Mancanegara</p>
+                  <ul class="list-disc pl-6">
+                    <li><strong>Rp 50.000</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Right Section (Book Ticket) -->
+          <div class="w-full md:w-1/2 h-full bg-white rounded-lg shadow-xl overflow-hidden p-6">
+            <div class="max-w-md mx-auto">
+              <h3 class="text-3xl font-bold mb-6 text-center">Pesan Tiket</h3>
+              <form id="ticket-form">
+                <!-- Ticket Categories Dropdown -->
+                <div id="ticket-categories" class="space-y-4">
+                  <label class="block text-lg font-medium">Kategori Tiket</label>
+                  <div class="flex items-center gap-4">
+                    <select id="ticket-category" class="w-full px-4 py-3 rounded-lg bg-gray-100 text-gray-800 focus:ring focus:ring-yellow-900 outline-none">
+                      <option value="" disabled selected>Pilih Kategori</option>
+                      <option value="jatim-umum">Domestik Jatim - Umum (Rp 10.000)</option>
+                      <option value="jatim-pelajar">Domestik Jatim - Pelajar (Rp 5.000)</option>
+                      <option value="luar-umum">Domestik Luar Jatim - Umum (Rp 15.000)</option>
+                      <option value="luar-pelajar">Domestik Luar Jatim - Pelajar (Rp 7.500)</option>
+                      <option value="mancanegara">Mancanegara (Rp 50.000)</option>
+                    </select>
+                    <input type="number" id="ticket-quantity" placeholder="Jumlah" min="1" value="1" class="w-24 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 focus:ring focus:ring-yellow-900 outline-none" />
+                  </div>
+                  <button type="button" id="add-ticket-btn" class="bg-yellow-900 text-white px-4 py-2 rounded-lg hover:bg-amber-950 transition w-full mt-4">Tambah</button>
+                </div>
+        
+                <!-- Tanggal Kunjungan -->
+                <label for="visit-date" class="block text-lg font-medium">Tanggal Kunjungan</label>
+                <input type="date" id="visit-date" class="w-full px-4 py-3 mt-4 rounded-lg bg-gray-100 text-gray-800 focus:ring focus:ring-yellow-900 outline-none" required />
+        
+                <!-- Selected Tickets -->
+                <div id="selected-tickets" class="space-y-4 mt-6">
+                  <h4 class="text-lg font-semibold">Tiket yang Dipilih:</h4>
+                  <ul class="list-disc pl-6"></ul>
+                </div>
+        
+                <!-- Total Price -->
+                <p class="text-lg font-semibold mt-6">Total Harga: <span id="total-price" class="text-yellow-900">Rp 0</span></p>
+        
+                <!-- Name -->
+                <input type="text" placeholder="Nama Anda" id="name" class="w-full px-4 py-3 mt-4 rounded-lg bg-gray-100 text-gray-800 focus:ring focus:ring-yellow-900 outline-none" />
+        
+                <!-- Email -->
+                <input type="email" placeholder="Email Anda" id="email" class="w-full px-4 py-3 mt-4 rounded-lg bg-gray-100 text-gray-800 focus:ring focus:ring-yellow-900 outline-none" />
+        
+                <!-- Submit Button -->
+                <button type="button" id="book-ticket-btn" class="w-full mt-6 bg-yellow-900 text-white px-4 py-3 rounded-lg hover:bg-amber-950 transition">Pesan Tiket</button>
+              </form>
+            </div>
+          </div>
         </div>
-        <div class="opacity-0 transform translate-y-6 transition duration-500 ease-out animate-fade-in fade-delay-3">
-          <p class="text-xl font-medium">ANAK-ANAK</p>
-          <p class="text-2xl font-semibold">Rp 30.000 / Tiket</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Right Section (Book Ticket) -->
-  <div class="w-full md:w-1/2 h-auto bg-white rounded-lg shadow-xl overflow-hidden p-6">
-    <div class="max-w-md mx-auto">
-      <h3 class="text-3xl font-bold mb-6 text-center">Book Ticket</h3>
-      <form id="ticket-form">
-        <!-- Ticket Type for Dewasa -->
-        <label for="adult-count" class="block text-lg font-medium">Dewasa</label>
-        <input type="number" id="adult-count" value="0" min="0" class="w-full px-4 py-3 mt-2 mb-4 rounded-lg bg-gray-100 text-gray-800 focus:ring focus:ring-orange-500 outline-none transition duration-300 hover:bg-gray-200" />
-
-        <!-- Ticket Type for Anak-anak -->
-        <label for="child-count" class="block text-lg font-medium">Anak-anak</label>
-        <input type="number" id="child-count" value="0" min="0" class="w-full px-4 py-3 mt-2 mb-4 rounded-lg bg-gray-100 text-gray-800 focus:ring focus:ring-orange-500 outline-none transition duration-300 hover:bg-gray-200" />
-
-        <!-- Total Price -->
-        <p class="text-lg font-semibold mb-4">Total Price: <span class="text-orange-500" id="total-price">Rp 0</span></p>
-
-        <!-- Name -->
-        <div class="flex gap-4">
-          <input
-            type="text"
-            placeholder="Name"
-            id="name"
-            class="w-1/2 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 focus:ring focus:ring-orange-500 outline-none transition duration-300 hover:bg-gray-200"
-          />
-          <input
-            type="text"
-            placeholder="Surname"
-            id="surname"
-            class="w-1/2 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 focus:ring focus:ring-orange-500 outline-none transition duration-300 hover:bg-gray-200"
-          />
-        </div>
-
-        <!-- Phone Number -->
-        <input
-          type="text"
-          placeholder="Your phone number"
-          id="phone"
-          class="w-full px-4 py-3 mt-4 rounded-lg bg-gray-100 text-gray-800 focus:ring focus:ring-orange-500 outline-none transition duration-300 hover:bg-gray-200"
-        />
-
-        <!-- Email -->
-        <input
-          type="email"
-          placeholder="Your Email"
-          id="email"
-          class="w-full px-4 py-3 mt-4 rounded-lg bg-gray-100 text-gray-800 focus:ring focus:ring-orange-500 outline-none transition duration-300 hover:bg-gray-200"
-        />
-
-        <!-- Submit Button -->
-        <button
-          type="button"
-          id="book-ticket-btn"
-          class="w-full mt-6 bg-orange-500 text-white px-4 py-3 rounded-lg hover:bg-orange-600 transition focus:ring focus:ring-orange-500 focus:outline-none"
-        >
-          PESAN TIKET
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
+        
 
 <!-- Modal for Confirmation -->
 <div id="ticket-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
   <div class="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
-    <h3 class="text-2xl font-bold mb-4 text-center">Ticket Booking Confirmation</h3>
-    <form>
-      <div class="mb-4">
-        <label for="modal-name" class="block text-lg font-medium">Name</label>
-        <input type="text" id="modal-name" class="w-full px-4 py-3 mt-2 mb-4 rounded-lg bg-gray-100 text-gray-800" readonly />
-      </div>
-      <div class="mb-4">
-        <label for="modal-email" class="block text-lg font-medium">Email</label>
-        <input type="email" id="modal-email" class="w-full px-4 py-3 mt-2 mb-4 rounded-lg bg-gray-100 text-gray-800" readonly />
-      </div>
-      <div class="mb-4">
-        <label for="qris" class="block text-lg font-medium">QRIS</label>
-        <!-- Gambar QRIS -->
-        <img src="https://via.placeholder.com/200x200" alt="QRIS" class="w-full h-auto rounded-lg shadow-lg" />
-      </div>
-      <p class="text-lg font-semibold mb-4">Total Price: <span class="text-orange-500" id="modal-total-price">Rp 0</span></p>
-      <button type="button" class="w-full bg-green-500 text-white px-4 py-3 rounded-lg hover:bg-green-600 transition duration-300" id="confirm-btn">Confirm</button>
-    </form>
+    <h3 class="text-2xl font-bold mb-4 text-center">Konfirmasi Pemesanan</h3>
+    <p class="text-lg mb-4"><strong>Nama:</strong> <span id="modal-name"></span></p>
+    <p class="text-lg mb-4"><strong>Email:</strong> <span id="modal-email"></span></p>
+    <p class="text-lg mb-4"><strong>Total Harga:</strong> <span id="modal-total-price"></span></p>
+    <p class="text-lg mb-4"><strong>Tanggal Kunjungan:</strong> <span id="modal-visit-date"></span></p> <!-- Menampilkan tanggal -->
+    <img src="/image/qris.png" alt="QRIS" class="w-1/2 mx-auto mb-4" />
+    <button id="confirm-btn" class="w-full bg-green-500 text-white px-4 py-3 rounded-lg hover:bg-green-600">Konfirmasi</button>
   </div>
 </div>
 
 <script>
-  // Function to calculate the total price
+  const prices = {
+    "jatim-umum": 10000,
+    "jatim-pelajar": 5000,
+    "luar-umum": 15000,
+    "luar-pelajar": 7500,
+    "mancanegara": 50000,
+  };
+
+  let selectedTickets = [];
+
   function updateTotalPrice() {
-    const adultCount = parseInt(document.getElementById("adult-count").value) || 0;
-    const childCount = parseInt(document.getElementById("child-count").value) || 0;
-
-    const adultPrice = 50000;
-    const childPrice = 30000;
-
-    const totalPrice = (adultCount * adultPrice) + (childCount * childPrice);
+    const totalPrice = selectedTickets.reduce((sum, ticket) => sum + ticket.quantity * prices[ticket.type], 0);
     document.getElementById("total-price").textContent = `Rp ${totalPrice.toLocaleString()}`;
   }
 
-  // Event listeners for changes in ticket quantities
-  document.getElementById("adult-count").addEventListener("input", updateTotalPrice);
-  document.getElementById("child-count").addEventListener("input", updateTotalPrice);
-
-  // Show modal with the final total price when booking ticket
-  document.getElementById("book-ticket-btn").addEventListener("click", function() {
-    // Show modal and populate it with the form data
-    document.getElementById("modal-name").value = document.getElementById("name").value + " " + document.getElementById("surname").value;
-    document.getElementById("modal-email").value = document.getElementById("email").value;
-
-    // Copy the total price to the modal
-    const totalPrice = document.getElementById("total-price").textContent;
-    document.getElementById("modal-total-price").textContent = totalPrice;
-
-    document.getElementById("ticket-modal").classList.remove("hidden");
-  });
-
-  // Hide modal after confirmation
-  document.getElementById("confirm-btn").addEventListener("click", function() {
-    document.getElementById("ticket-modal").classList.add("hidden");
-    alert("Ticket has been booked successfully!");
-  });
-
-  // Close modal if clicked outside of it
-  document.getElementById("ticket-modal").addEventListener("click", function(event) {
-    if (event.target === this) {
-      this.classList.add("hidden");
+  document.getElementById("add-ticket-btn").addEventListener("click", () => {
+    const type = document.getElementById("ticket-category").value;
+    const quantity = parseInt(document.getElementById("ticket-quantity").value);
+    if (type && quantity > 0) {
+      selectedTickets.push({ type, quantity });
+      const list = document.querySelector("#selected-tickets ul");
+      const ticketLabel = document.querySelector(`#ticket-category option[value="${type}"]`).textContent;
+      const listItem = document.createElement("li");
+      listItem.textContent = `${ticketLabel} - ${quantity} tiket`;
+      list.appendChild(listItem);
+      updateTotalPrice();
     }
   });
 
-  // Initialize the price display
-  updateTotalPrice();
+  document.getElementById("book-ticket-btn").addEventListener("click", () => {
+    document.getElementById("modal-name").textContent = document.getElementById("name").value;
+    document.getElementById("modal-email").textContent = document.getElementById("email").value;
+    document.getElementById("modal-total-price").textContent = document.getElementById("total-price").textContent;
+    document.getElementById("modal-visit-date").textContent = document.getElementById("visit-date").value; // Menambahkan tanggal kunjungan
+    document.getElementById("ticket-modal").classList.remove("hidden");
+  });
+
+  document.getElementById("confirm-btn").addEventListener("click", () => {
+    alert("Tiket berhasil dipesan!");
+    document.getElementById("ticket-modal").classList.add("hidden");
+  });
 </script>
-
-
 <script>
-  document.getElementById("book-ticket-btn").addEventListener("click", function() {
-    // Show modal and populate it with the form data
-    document.getElementById("modal-name").value = document.getElementById("name").value + " " + document.getElementById("surname").value;
-    document.getElementById("modal-email").value = document.getElementById("email").value;
-    document.getElementById("ticket-modal").classList.remove("hidden");
-  });
+  document.getElementById("book-ticket-btn").addEventListener("click", () => {
+      const ticketId = document.getElementById("ticket-category").value;
+      const jumlahPesan = parseInt(document.getElementById("ticket-quantity").value);
+      const tanggalPemesanan = document.getElementById("visit-date").value;
 
-  document.getElementById("confirm-btn").addEventListener("click", function() {
-    // Hide the modal after confirmation
-    document.getElementById("ticket-modal").classList.add("hidden");
-    alert("Ticket has been booked successfully!");
-  });
-
-  // Close modal if clicked outside of it
-  document.getElementById("ticket-modal").addEventListener("click", function(event) {
-    if (event.target === this) {
-      this.classList.add("hidden");
-    }
-  });
-</script>
-
-
-
-<script>
-  document.getElementById("book-ticket-btn").addEventListener("click", function() {
-    // Show modal and populate it with the form data
-    document.getElementById("modal-name").value = document.getElementById("name").value + " " + document.getElementById("surname").value;
-    document.getElementById("modal-email").value = document.getElementById("email").value;
-    document.getElementById("ticket-modal").classList.remove("hidden");
-  });
-
-  document.getElementById("confirm-btn").addEventListener("click", function() {
-    // Hide the modal after confirmation
-    document.getElementById("ticket-modal").classList.add("hidden");
-    alert("Ticket has been booked successfully!");
-  });
-
-  // Close modal if clicked outside of it
-  document.getElementById("ticket-modal").addEventListener("click", function(event) {
-    if (event.target === this) {
-      this.classList.add("hidden");
-    }
+      fetch("/tiket", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+              "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
+          },
+          body: JSON.stringify({
+              tiket_id: ticketId,
+              jumlah_pesan: jumlahPesan,
+              tanggal_pemesanan: tanggalPemesanan,
+          }),
+      })
+          .then((response) => {
+              if (!response.ok) {
+                  return response.json().then((data) => {
+                      throw new Error(data.message);
+                  });
+              }
+              return response.json();
+          })
+          .then((data) => {
+              alert(data.message);
+          })
+          .catch((error) => {
+              alert(`Gagal memesan tiket: ${error.message}`);
+          });
   });
 </script>
-
 
 
     <!-- Footer -->

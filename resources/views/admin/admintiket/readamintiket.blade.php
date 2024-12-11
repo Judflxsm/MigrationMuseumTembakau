@@ -16,5 +16,26 @@
             <h1 class="text-3xl font-bold text-gray-700">TIKETTTTTTT</h1>
         </div>
     </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Tipe Tiket</th>
+                <th>Jumlah Maksimal</th>
+                <th>Jumlah Dipesan</th>
+                <th>Tanggal Pemesanan</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($tikets as $tiket)
+            <tr>
+                <td>{{ $tiket->tipe_tiket }}</td>
+                <td>{{ $tiket->jumlah_maksimal_pengunjung }}</td>
+                <td>{{ $tiket->reserved_tickets }}</td>
+                <td>{{ $tiket->tanggal_pemesanan }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    
 </body>
 </html>

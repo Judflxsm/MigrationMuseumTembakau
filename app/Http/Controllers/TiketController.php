@@ -14,18 +14,29 @@ class TiketController extends Controller
     }
 
     public function store(Request $request)
+    
     {
-        $data = $request->validate([
-            'admin_id' => 'required|exists:admins,admin_id',
-            'tipe_tiket' => 'required',
-            'harga' => 'required|numeric',
-            'deskripsi' => 'nullable',
-            'jumlah_maksimal_pengunjung' => 'required|integer',
-            'tanggal_kadaluarsa' => 'required|date',
+        $request->validate([
+            'tiket_id' => 'required|exists:tikets,tiket_id',
+            'jumlah_pesan' => 'required|integer|min:1',
+            'tanggal_pemesanan' => 'required|date',
         ]);
 
-        return Tiket::create($data);
+        $tiket = Tiket::findOrFail($request->tiket_id);
+
+        // Cek apakah melebihi batas pemesanan
+        if ($tiket->reserved_tickets + $request->jumlah_pesan > 25) {
+            return response()->json(['message' => 'Pemesanan tiket telah mencapai batas maksimal untuk hari ini.'], 400);
+        }
+
+        // Update jumlah tiket yang dipesan
+        $tiket->reserved_tickets += $request->jumlah_pesan;
+        $tiket->tanggal_pemesanan = $request->tanggal_pemesanan;
+        $tiket->save();
+
+        return response()->json(['message' => 'Pemesanan tiket berhasil.']);
     }
+
 
     public function show($id)
     {

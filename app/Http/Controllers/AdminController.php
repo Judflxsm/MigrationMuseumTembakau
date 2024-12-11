@@ -35,8 +35,10 @@ class AdminController extends Controller
     // Menampilkan halaman dashboard admin
     public function index()
     {
-        return view('admin.index');
+        $tikets = Tiket::with('admin')->get();
+        return view('admin.tiket.index', compact('tikets'));
     }
+
 
     // Menampilkan halaman dashboard admin 
     public function dashboard()

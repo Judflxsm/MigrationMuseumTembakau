@@ -19,12 +19,16 @@ class Tiket extends Model
         'deskripsi',
         'jumlah_maksimal_pengunjung',
         'tanggal_kadaluarsa',
+        'reserved_tickets',
+        'tanggal_pemesanan',
     ];
+    
 
     // Relasi
+    // Model Tiket.php
     public function admin()
     {
-        return $this->belongsTo(Admin::class, 'admin_id', 'admin_id');
+        return $this->belongsTo(Admin::class, 'admin_id'); // Sesuaikan 'admin_id' dengan nama kolom foreign key di database.
     }
 
     public function detailPemesanan()

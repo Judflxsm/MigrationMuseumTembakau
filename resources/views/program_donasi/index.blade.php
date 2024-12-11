@@ -6,7 +6,7 @@
 <!-- About Donation Program -->
 <section class="py-12 bg-white">
     <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-8 text-[#c8a876] tracking-wide animate-slide-up relative">
+        <h2 class="text-3xl font-bold text-center mb-8 text-yellow-900 tracking-wide animate-slide-up relative">
             Bergabung dalam Program Donasi Kami
             <span class="absolute left-1/2 transform -translate-x-1/2 bottom-[-6px] w-16 h-1 bg-[#c8a876] rounded"></span>
         </h2>
@@ -34,7 +34,7 @@
 <!-- Benefits Section -->
 <section class="py-12 bg-white">
     <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-8 text-[#c8a876] tracking-wide animate-slide-up relative">
+        <h2 class="text-3xl font-bold text-center mb-8 text-yellow-900 tracking-wide animate-slide-up relative">
             Bagaimana Donasi Anda Membantu
             <span class="absolute left-1/2 transform -translate-x-1/2 bottom-[-6px] w-16 h-1 bg-[#c8a876] rounded"></span>
         </h2>
@@ -116,7 +116,7 @@
             <!-- Submit Button -->
             <button
                 type="submit"
-                class="w-full py-4 bg-[#8b5e34] text-white font-semibold text-xl rounded-xl hover:bg-[#704927] transition-all duration-300 focus:ring-2 focus:ring-[#8b5e34] focus:outline-none transform hover:scale-105 shadow-lg"
+                class="w-full py-4 bg-yellow-900 text-white font-semibold text-xl rounded-xl hover:bg-[#704927] transition-all duration-300 focus:ring-2 focus:ring-[#8b5e34] focus:outline-none transform hover:scale-105 shadow-lg"
             >
                 DONASI SEKARANG
             </button>

@@ -211,41 +211,7 @@
     document.getElementById("ticket-modal").classList.add("hidden");
   });
 </script>
-<script>
-  document.getElementById("book-ticket-btn").addEventListener("click", () => {
-      const ticketId = document.getElementById("ticket-category").value;
-      const jumlahPesan = parseInt(document.getElementById("ticket-quantity").value);
-      const tanggalPemesanan = document.getElementById("visit-date").value;
-
-      fetch("/tiket", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-              "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
-          },
-          body: JSON.stringify({
-              tiket_id: ticketId,
-              jumlah_pesan: jumlahPesan,
-              tanggal_pemesanan: tanggalPemesanan,
-          }),
-      })
-          .then((response) => {
-              if (!response.ok) {
-                  return response.json().then((data) => {
-                      throw new Error(data.message);
-                  });
-              }
-              return response.json();
-          })
-          .then((data) => {
-              alert(data.message);
-          })
-          .catch((error) => {
-              alert(`Gagal memesan tiket: ${error.message}`);
-          });
-  });
-</script>
-
+<
 
     <!-- Footer -->
     <footer class="bg-white py-10 md:py-16">
@@ -281,7 +247,7 @@
   </footer>
   ankac
   
-      <script src="https://unpkg.com/@popperjs/core@2"></script>
+      <script src="https://unpkg.com/@popperjs/core@2"></>
       <script src="https://unpkg.com/tippy.js@6"></script>
       <script>
           //Init tooltips

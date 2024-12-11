@@ -65,6 +65,6 @@ class TiketController extends Controller
         $tiket = Tiket::findOrFail($id);
         $tiket->delete();
 
-        return response()->json(['message' => 'Tiket deleted successfully']);
+        return response()->json(['message' => 'Tiket berhasil dihapus']);
     }
 }

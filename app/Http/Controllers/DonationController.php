@@ -18,7 +18,7 @@ class DonationController extends Controller
     // Simpan data donasi
     public function store(Request $request)
     {
-        // Validasi input
+        // Validasi input   
         $request->validate([
             'donor_name' => 'required|string|max:255',
             'email' => 'required|email|max:255',

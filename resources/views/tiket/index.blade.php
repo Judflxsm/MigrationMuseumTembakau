@@ -176,7 +176,7 @@
     <p><strong>Tipe Tiket:</strong> <span id="modalTicketType"></span></p>
     <p><strong>Total Harga:</strong> <span id="modalTotalPrice"></span></p>
     <div class="mt-4">
-      <img id="qrisImage" src="QR code.jpeg" alt="QRIS" class="w-40 mx-auto">
+      <img src="image/QR.jpeg" alt="QRIS" class="w-40 mx-auto">
     </div>
     <div class="mt-4 flex justify-between">
       <button id="confirmBtn" class="px-6 py-2 bg-green-500 text-white rounded">Konfirmasi</button>

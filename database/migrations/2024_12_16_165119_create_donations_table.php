@@ -12,7 +12,7 @@ class CreateDonationsTable extends Migration
             $table->id();
             $table->string('donor_name');
             $table->string('email');
-            $table->decimal('amount', 10, 2); // Ganti donation_amount menjadi amount
+            $table->decimal('amount', 10, 2); 
             $table->text('notes')->nullable();
             $table->timestamps();
         });

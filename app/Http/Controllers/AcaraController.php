@@ -25,20 +25,8 @@ class AcaraController extends Controller
 
     public function store(Request $request)
     {
-        $admin = Admin::find(1);  
-        if ($admin) {
-            $acara = new Acara();
-            $acara->admin_id = $admin->admin_id; 
-            $acara->nama_acara = $request->nama_acara;
-            $acara->tanggal_acara = $request->tanggal_acara;
-            $acara->deskripsi_singkat = $request->deskripsi_singkat;
-            $acara->deskripsi = $request->deskripsi;
-            $acara->gambar = $request->gambar;
-            $acara->google_map_url = $request->google_map_url;
-        }
         try {
             $request->validate([
-                'admin_id' => 'required|exists:admins,admin_id',
                 'nama_acara' => 'required|string|max:255',
                 'tanggal_acara' => 'required|date',
                 'deskripsi_singkat' => 'required|string|max:255',
@@ -53,7 +41,6 @@ class AcaraController extends Controller
             }
 
             Acara::create([
-                'admin_id' => $request->admin_id,  
                 'judul' => $request->judul,
                 'nama_acara' => $request->nama_acara,
                 'tanggal_acara' => $request->tanggal_acara,

@@ -13,19 +13,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id(); // bigint(20) unsigned, auto increment
-            $table->string('name', 255); // varchar(255), not nullable
-            $table->string('email', 255)->unique(); // varchar(255), unique key
-            $table->string('phone_number', 255)->nullable(); // varchar(255), nullable
-            $table->timestamp('email_verified_at')->nullable(); // timestamp, nullable
-            $table->string('password', 255)->nullable(); // varchar(255), not nullable
-            $table->string('remember_token', 100)->nullable(); // varchar(100), nullable
-            $table->timestamps(); // created_at and updated_at timestamps
-            $table->string('ticket_type', 255)->default('general'); // varchar(255), default value
-            $table->integer('ticket_quantity')->default(1); // default 1 jika tidak diisi
-            $table->decimal('total_price', 10, 2)->default(0.00); // default 0.00 jika tidak diisi
+            $table->id(); 
+            $table->string('name', 255); 
+            $table->string('email', 255)->unique(); 
+            $table->string('phone_number', 255)->nullable(); 
+            $table->timestamp('email_verified_at')->nullable(); 
+            $table->string('password', 255)->nullable(); 
+            $table->string('remember_token', 100)->nullable(); 
+            $table->timestamps(); 
+            $table->string('ticket_type', 255)->default('general'); 
+            $table->integer('ticket_quantity')->default(1); 
+            $table->decimal('total_price', 10, 2)->default(0.00);
             $table->date('purchase_date'); 
-            $table->date('visit_date')->nullable(); // date, nullable
+            $table->date('visit_date')->nullable(); 
         });        
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

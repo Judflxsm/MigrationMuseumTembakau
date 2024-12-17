@@ -64,10 +64,6 @@
         <form action="{{ route('admin.acara.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-4">
-                <label for="admin_id" class="block text-sm">Admin ID</label>
-                <input type="number" id="admin_id" name="admin_id" class="border p-2 w-full rounded">
-            </div>
-            <div class="mb-4">
                 <label for="nama_acara" class="block text-sm">Nama Acara</label>
                 <input type="text" id="nama_acara" name="nama_acara" class="border p-2 w-full rounded">
             </div>
@@ -112,16 +108,16 @@
                 <input type="text" id="edit_nama_acara" name="nama_acara" class="border p-2 w-full rounded">
             </div>
             <div class="mb-4">
-                <label for="edit_deskripsi" class="block text-sm">Deskripsi Acara</label>
-                <textarea id="edit_deskripsi" name="deskripsi" class="border p-2 w-full rounded"></textarea>
-            </div>
-            <div class="mb-4">
                 <label for="edit_tanggal_acara" class="block text-sm">Tanggal Acara</label>
                 <input type="date" id="edit_tanggal_acara" name="tanggal_acara" class="border p-2 w-full rounded">
             </div>
             <div class="mb-4">
                 <label for="edit_deskripsi_singkat" class="block text-sm">Deskripsi Singkat Acara</label>
                 <textarea id="edit_deskripsi_singkat" name="deskripsi_singkat" class="border p-2 w-full rounded"></textarea>
+            </div>
+            <div class="mb-4">
+                <label for="edit_deskripsi" class="block text-sm">Deskripsi Acara</label>
+                <textarea id="edit_deskripsi" name="deskripsi" class="border p-2 w-full rounded"></textarea>
             </div>
             <div class="mb-4">
                 <label for="edit_google_map_url" class="block text-sm">Gmap Url</label>

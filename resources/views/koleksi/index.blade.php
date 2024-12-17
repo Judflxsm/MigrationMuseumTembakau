@@ -20,12 +20,11 @@
                                 style="background-image: url('{{ asset('storage/' . $koleksi->gambar) }}');">
                             </div>
                         </div>
-                        <!-- Detail koleksi -->
+                        <!-- Detail koleksi --> 
                         <div class="px-5 py-4">
                             <h3 class="text-gray-700 uppercase font-semibold text-lg">{{ $koleksi->judul}}</h3>
                             <p class="text-gray-500 text-sm mt-1">{{ $koleksi->deskripsi_singkat }}</p>
                             <a href="{{ route('koleksi.detail', $koleksi->koleksi_id) }}" class="text-blue-500 hover:underline">Baca Selengkapnya</a>
-
                         </div>
                     </div>
                     @endforeach

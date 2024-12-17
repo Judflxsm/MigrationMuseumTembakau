@@ -18,7 +18,7 @@ class AdminTableSeeder extends Seeder
             [
                 'admin_id' => 1,
                 'username' => 'admin',
-                'password' => Hash::make('admin123'), // Pastikan menggunakan hash untuk keamanan
+                'password' => Hash::make('admin123'), 
                 'created_at' => now(),
                 'updated_at' => now(),
             ]]);

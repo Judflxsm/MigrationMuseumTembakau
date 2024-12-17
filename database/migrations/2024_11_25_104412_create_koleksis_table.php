@@ -13,15 +13,11 @@ return new class extends Migration
     {
         Schema::create('koleksis', function (Blueprint $table) {
             $table->id('koleksi_id');
-            $table->unsignedBigInteger('admin_id');  // Kolom foreign key yang mengarah ke tabel admins
             $table->string('judul');
             $table->string('deskripsi_singkat');
             $table->text('deskripsi');
             $table->string('gambar')->nullable();
             $table->timestamps();
-    
-            // Relasi foreign key ke tabel admins
-            $table->foreign('admin_id')->references('admin_id')->on('admins')->onDelete('cascade');
         });
     }
     

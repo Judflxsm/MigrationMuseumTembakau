@@ -10,7 +10,6 @@ class Koleksi extends Model
     protected $table = 'koleksis';
     protected $primaryKey = 'koleksi_id';
     protected $fillable = [
-        'admin_id', // pastikan admin_id ada di sini 
         'judul',
         'deskripsi_singkat',
         'deskripsi',

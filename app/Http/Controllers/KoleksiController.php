@@ -26,17 +26,8 @@ class KoleksiController extends Controller
 
     public function store(Request $request)
     {
-        $admin = Admin::find(1);
-        if ($admin) {
-            $koleksi = new Koleksi();
-            $koleksi->judul = $request->judul;
-            $koleksi->deskripsi_singkat = $request->deskripsi_singkat;
-            $koleksi->deskripsi = $request->deskripsi;
-            $koleksi->admin_id = $admin->admin_id; 
-        }
         try {
             $request->validate([
-                'admin_id' => 'required|exists:admins,admin_id', 
                 'judul' => 'required',
                 'deskripsi_singkat' => 'required|string|max:255',
                 'deskripsi' => 'required',
@@ -49,7 +40,6 @@ class KoleksiController extends Controller
             }
 
             Koleksi::create([
-                'admin_id' => $request->admin_id, 
                 'judul' => $request->judul,
                 'deskripsi_singkat' => $request->deskripsi_singkat,
                 'deskripsi' => $request->deskripsi,

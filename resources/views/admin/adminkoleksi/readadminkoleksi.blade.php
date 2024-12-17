@@ -44,7 +44,7 @@
                     </div>
                     <!-- Detail koleksi -->
                     <div class="px-5 py-4">
-                        <h3 class="text-gray-700 uppercase font-semibold text-lg">{{ $koleksi->nama_koleksi }}</h3>
+                        <h3 class="text-gray-700 uppercase font-semibold text-lg">{{ $koleksi->judul}}</h3>
                         <p class="text-gray-500 text-sm mt-1">{{ $koleksi->deskripsi_singkat}}</p>
                         <a href="{{ route('koleksi.detail', $koleksi->koleksi_id) }}" class="text-blue-500 hover:underline">Baca Selengkapnya</a>
                     </div>
@@ -61,10 +61,6 @@
         <h2 class="text-lg font-bold mb-4">Tambah Koleksi</h2>
         <form action="{{ route('admin.koleksi.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="mb-4">
-                <label for="admin_id" class="block text-sm">Admin ID</label>
-                <input type="number" id="admin_id" name="admin_id" class="border p-2 w-full rounded">
-            </div>
             <div class="mb-4">
                 <label for="judul" class="block text-sm">Nama Koleksi</label>
                 <input type="text" id="judul" name="judul" class="border p-2 w-full rounded">

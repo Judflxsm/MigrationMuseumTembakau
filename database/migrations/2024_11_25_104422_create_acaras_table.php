@@ -13,7 +13,6 @@ return new class extends Migration
 {
     Schema::create('acaras', function (Blueprint $table) {
         $table->id('acara_id');
-        $table->unsignedBigInteger('admin_id');
         $table->string('nama_acara');
         $table->date('tanggal_acara');
         $table->string('deskripsi_singkat');
@@ -21,8 +20,6 @@ return new class extends Migration
         $table->string('gambar')->nullable();
         $table->string('google_map_url')->nullable();
         $table->timestamps();
-
-        $table->foreign('admin_id')->references('admin_id')->on('admins')->onDelete('cascade');
     });
 }
 

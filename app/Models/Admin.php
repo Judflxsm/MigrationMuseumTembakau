@@ -32,20 +32,5 @@ class Admin extends Model
     {
         return $this->hasMany(Acara::class, 'admin_id', 'admin_id');
     }
-
-    public function programDonasi()
-    {
-        return $this->hasMany(ProgramDonasi::class, 'admin_id', 'admin_id');
-    }
-
-    public function metodePembayaran()
-    {
-        return $this->hasMany(MetodePembayaran::class, 'admin_id', 'admin_id');
-    }
-
-    public function tiket()
-    {
-        return $this->hasMany(Tiket::class, 'admin_id', 'admin_id');
-    }
 }
 

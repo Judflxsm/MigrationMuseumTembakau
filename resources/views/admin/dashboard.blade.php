@@ -9,10 +9,9 @@
 </head>
 <body class="bg-gray-100">
     <div class="flex h-screen">
-        <!-- Sidebar -->
+
         @include('admin.sidebar')
 
-        <!-- Main Content -->
         <div class="flex-1 p-6">
             <h1 class="text-3xl font-bold text-gray-700">Selamat datang di Dashboard Admin</h1>
         </div>
